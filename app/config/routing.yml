@@ -1,0 +1,3 @@
+daan_fizz_buzz:
+    resource: "@DaanFizzBuzzBundle/Resources/config/routing.yml"
+    prefix:   /

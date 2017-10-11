@@ -1,0 +1,8 @@
+daan_fizz_buzz_homepage:
+    path:     /
+    defaults: { _controller: daan_fizz_buzz.example:indexAction }
+    
+daan_fizz_buzz_custom_range:
+    path:     /{start}/{end}
+    defaults: { _controller: daan_fizz_buzz.example:customRangeAction }
+    
