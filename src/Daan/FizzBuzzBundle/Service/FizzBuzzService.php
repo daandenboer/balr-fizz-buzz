@@ -1,42 +1,27 @@
 <?php
+
 namespace Daan\FizzBuzzBundle\Service;
 
 class FizzBuzzService
 {
-    
-    public function makeFizzBuzz()
+
+    public function makeFizzBuzz($start = 1, $end = 30)
     {
-        return [
-            1,
-            2,
-            'BALR.',
-            4,
-            '433',
-            'BALR.',
-            7,
-            8,
-            'BALR.',
-            '433',
-            11,
-            'BALR.',
-            13,
-            14,
-            'BALR.433',
-            16,
-            17,
-            'BALR.',
-            19,
-            '433',
-            'BALR.',
-            22,
-            23,
-            'BALR.',
-            '433',
-            26,
-            'BALR.',
-            28,
-            29,
-            'BALR.433'
-            ];
+        $fizzBuzz = [];
+        for ($i = $start; $i <= $end; $i++) {
+            if ($i % 5 == 0 && $i % 3 == 0) {
+                $output = "BALR.433";
+            } elseif ($i % 5 == 0) {
+                $output = "433";
+            } elseif ($i % 3 == 0) {
+                $output  = "BALR.";
+            } else {
+                $output = $i;
+            }
+            $fizzBuzz[] = $output;
+        }
+
+        return $fizzBuzz;
+
     }
 }

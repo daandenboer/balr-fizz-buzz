@@ -44,10 +44,9 @@ class DefaultController
     
     public function customRangeAction($start, $end)
     {
-        $fizzBuzz = $this->fizzBuzzService->makeFizzBuzz();
-        $replacement = array_splice($fizzBuzz, $start - 1, $end - $start + 1);
+        $fizzBuzz = $this->fizzBuzzService->makeFizzBuzz($start, $end);
         $content = $this->templating->render('DaanFizzBuzzBundle:Default:index.html.twig', [
-            'fizz_buzz' => $replacement
+            'fizz_buzz' => $fizzBuzz
         ]);
         
         return new Response($content);

@@ -45,4 +45,18 @@ class FizzBuzzServiceTest extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($expected, $fizzBuzz);
     }
+
+    public function testMakeFizzBuzzCustomRange()
+    {
+        $fizzBuzzService = new FizzBuzzService();
+        $fizzBuzz = $fizzBuzzService->makeFizzBuzz(1, 4);
+        $expected = [
+            1,
+            2,
+            'BALR.',
+            4
+        ];
+
+        $this->assertEquals($expected, $fizzBuzz);
+    }
 }
