@@ -1,5 +1,29 @@
-<ul>
-{% for element in fizz_buzz %}
-<li>{{ element }}</li>
-{% endfor %}
-</ul>
+{% extends '@DaanFizzBuzz/layout.html.twig' %}
+
+{% block body %}
+    <div class="row form-row">
+        <div class="col-xs-2">
+            {{ form_start(form) }}
+                {{ form_row(form.word1) }}
+                {{ form_row(form.word2) }}   
+        </div>
+        <div class="col-xs-2">
+                {{ form_row(form.number1) }} 
+                {{ form_row(form.number2) }}
+                <input type="submit" class="btn btn-default"/>
+                {{ form_widget(form.reset, {attr:  {'class': 'btn-default'}}) }}
+        </div>
+        <div class="col-xs-2">
+                {{ form_row(form.start) }}
+                {{ form_row(form.end) }}
+                {{ form_end(form) }} 
+        </div>
+    </div>
+    <div class="row fizzbuzzprint">
+        <ul>
+        {% for element in fizz_buzz %}
+        <li>{{ element }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

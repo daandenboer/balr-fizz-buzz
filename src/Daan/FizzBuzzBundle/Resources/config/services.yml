@@ -4,7 +4,7 @@ services:
         arguments:
             - "@templating"
             - "@daan_fizz_buzz.fizz_buzz_service"
-
+ 
     daan_fizz_buzz.fizz_buzz_service:
         class: Daan\FizzBuzzBundle\Service\FizzBuzzService
 

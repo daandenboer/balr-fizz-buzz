@@ -3,10 +3,13 @@ namespace Daan\FizzBuzzBundle\Controller;
 
 use Daan\FizzBuzzBundle\Service\FizzBuzzService;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Templating\EngineInterface;
+use Daan\FizzBuzzBundle\Form\Type\FizzBuzzType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController
+class DefaultController extends Controller
 {
 
     /**
@@ -22,7 +25,6 @@ class DefaultController
     /**
      * DefaultController constructor.
      * @param EngineInterface $templating
-     * @param FizzBuzzService $fizzBuzzService
      */
     public function __construct(
         EngineInterface $templating,
@@ -32,11 +34,34 @@ class DefaultController
         $this->fizzBuzzService = $fizzBuzzService;
     }
 
+    /**
+     * This is a method description
+     * 
+     * @param Request $request This is a request
+     * @return Response
+     */
     public function indexAction(Request $request)
     {
-        $fizzBuzz = $this->fizzBuzzService->makeFizzBuzz();
+        $form = $this->createForm(FizzBuzzType::class);
+        
+        $fizzBuzz = null;
+        
+        $resetbutton = $form->get('reset');
+        
+        if ($form->handleRequest($request)->isValid()) {
+            $fizzBuzzSettings = $form->getData();
+            $fizzBuzz = $this->fizzBuzzService->makeFizzBuzz($fizzBuzzSettings);
+        }
+        
+        if ($resetbutton->isClicked()) {
+            $form = $this->createForm(FizzBuzzType::class);
+            $fizzBuzz = $this->fizzBuzzService->makeFizzBuzz();
+        }
+        
+             
         $content = $this->templating->render('DaanFizzBuzzBundle:Default:index.html.twig', [
-            'fizz_buzz' => $fizzBuzz
+            'fizz_buzz' => $fizzBuzz,
+            'form' => $form->createView()
         ]);
 
         return new Response($content);
