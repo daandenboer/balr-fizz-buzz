@@ -1,11 +1,6 @@
-.fizzbuzz .header p {
-    position: absolute;
-    left: 130px;
-    color: white;
-}
-
 .fizzbuzz .fizzbuzzer {
     padding: 20px;
+    max-width: 100%;
 }
 
 .fizzbuzz .fizzbuzzform {
@@ -14,7 +9,7 @@
 
 .fizzbuzz .fizzbuzzprint {
     display: block;
-    height: 100vh;
+    height: 95vh;
     overflow: scroll;
     border-left: 1px solid black;
 }
@@ -23,11 +18,6 @@
     list-style-type: none;
     font-weight: 200;
     font-size: 25px;
-}
-
-.fizzbuzz li {
-    position: relative;
-    left: 10px;
 }
 
 
