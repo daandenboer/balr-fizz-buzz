@@ -14,12 +14,12 @@ class FizzBuzzType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('word1', TextType::class)
-            ->add('word2', TextType::class)
-            ->add('number1', IntegerType::class)
-            ->add('number2', IntegerType::class)
-            ->add('start', IntegerType::class)
-            ->add('end', IntegerType::class)
+            ->add('word1', TextType::class, array('label' => 'First word'))
+            ->add('word2', TextType::class, array('label' => 'Second word'))
+            ->add('number1', IntegerType::class, array('label' => 'Show first word at'))
+            ->add('number2', IntegerType::class, array('label' => 'Show second word at'))
+            ->add('start', IntegerType::class, array('label' => 'Start point'))
+            ->add('end', IntegerType::class, array('label' => 'End point'))
             ->add('reset', SubmitType::class, array(
                 'attr' => array('class' => 'reset')))
         ;

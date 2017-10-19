@@ -1,29 +1,44 @@
 {% extends '@DaanFizzBuzz/layout.html.twig' %}
 
 {% block body %}
-    <div class="row form-row">
-        <div class="col-xs-2">
+    {{ parent() }}
+    <div class="row fizzbuzzer">
+        <div class="col-xs-6 fizzbuzzform">
             {{ form_start(form) }}
-                {{ form_row(form.word1) }}
-                {{ form_row(form.word2) }}   
+            {{ form_row(form.word1) }}
+            {{ form_row(form.number1) }} 
+            {{ form_row(form.word2) }}   
+            {{ form_row(form.number2) }}
+            {{ form_row(form.start) }}
+            {{ form_row(form.end) }}
+            <input type="submit" class="btn btn-default"/>
+            {{ form_widget(form.reset, {attr:  {'class': 'btn-default'}}) }}
+            {{ form_end(form) }}
         </div>
-        <div class="col-xs-2">
-                {{ form_row(form.number1) }} 
-                {{ form_row(form.number2) }}
-                <input type="submit" class="btn btn-default"/>
-                {{ form_widget(form.reset, {attr:  {'class': 'btn-default'}}) }}
-        </div>
-        <div class="col-xs-2">
-                {{ form_row(form.start) }}
-                {{ form_row(form.end) }}
-                {{ form_end(form) }} 
+        <div class="col-xs-6 fizzbuzzprint">
+            <ul>
+            {% for element in fizz_buzz %}
+            <li>{{ element }}</li>
+            {% endfor %}
+            </ul>
         </div>
     </div>
-    <div class="row fizzbuzzprint">
-        <ul>
-        {% for element in fizz_buzz %}
-        <li>{{ element }}</li>
-        {% endfor %}
-        </ul>
-    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+<script>
+        
+    var i = 0;
+    var showtime = 100;
+    
+    $(document).ready(function () {
+        $( 'ul > li' ).hide();
+        $( 'ul > li' ).each( function( index, element ) {
+            $( this ).delay( showtime+=70 ).fadeIn( 1000 );
+        });
+    });
+    
+</script>
+
 {% endblock %}

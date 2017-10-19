@@ -16,7 +16,7 @@ class FizzBuzzService
         $number1 = 3;
         $number2 = 5;
         $start = 1;
-        $end = 30;
+        $end = 15;
         
         if (isset($fizzBuzzSettings)) {
             $word1 = $fizzBuzzSettings->getWord1();

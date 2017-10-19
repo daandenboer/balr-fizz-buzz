@@ -1,4 +1,35 @@
-.fizzbuzz .form-row, .fizzbuzzprint {
+.fizzbuzz .header p {
+    position: absolute;
+    left: 130px;
+    color: white;
+}
+
+.fizzbuzz .fizzbuzzer {
     padding: 20px;
 }
+
+.fizzbuzz .fizzbuzzform {
+    padding-right: 20%;
+}
+
+.fizzbuzz .fizzbuzzprint {
+    display: block;
+    height: 100vh;
+    overflow: scroll;
+    border-left: 1px solid black;
+}
+
+.fizzbuzz ul {
+    list-style-type: none;
+    font-weight: 200;
+    font-size: 25px;
+}
+
+.fizzbuzz li {
+    position: relative;
+    left: 10px;
+}
+
+
+
 
