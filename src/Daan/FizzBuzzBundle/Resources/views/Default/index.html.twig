@@ -1,7 +1,6 @@
 {% extends '@DaanFizzBuzz/layout.html.twig' %}
 
 {% block body %}
-    {{ parent() }}
     <div class="row fizzbuzzer">
         <div class="col-xs-6 fizzbuzzform">
             {{ form_start(form) }}
@@ -25,20 +24,6 @@
     </div>
 {% endblock %}
 
-
 {% block javascripts %}
-<script>
-        
-    var i = 0;
-    var showtime = 100;
-    
-    $(document).ready(function () {
-        $( 'ul > li' ).hide();
-        $( 'ul > li' ).each( function( index, element ) {
-            $( this ).delay( showtime+=70 ).fadeIn( 1000 );
-        });
-    });
-    
-</script>
-
+<script src='asset/js/fizzbuzzfade.js'></script>
 {% endblock %}
